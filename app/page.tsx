@@ -20,11 +20,18 @@ export default function Home() {
 
           <PatientForm />
 
-          <div className="text-14-regular mt-20 flex justify-between">
-            <p className="justify-items-end text-dark-600 xl:text-left">
-              © 2024 CarePluse
+          <div className="mt-20 flex flex-col sm:flex-row justify-between items-center px-4 md:px-8">
+            <p className="copyright py-4 flex items-center justify-center space-x-2 text-sm text-gray-600">
+              <span>© {new Date().getFullYear()} </span>
+              <span>|</span>
+              <span className="font-semibold text-green-800">ASM Shad</span>
+              <span>|</span>
+              <span className="font-semibold text-green-800">CarePluse</span>
             </p>
-            <Link href="/?admin=true" className="text-green-500">
+            <Link
+              href="/?admin=true"
+              className="text-green-800 text-sm md:text-base mt-4 sm:mt-0"
+            >
               Admin
             </Link>
           </div>
