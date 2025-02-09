@@ -28,17 +28,13 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        {/* Suppress hydration warnings */}
-        <div suppressHydrationWarning>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem={false}
-          >
-            {children}
-          </ThemeProvider>
-        </div>
+        <ThemeProvider attribute="class" defaultTheme="dark">
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
 }
+
+// suppressHydrationWarning
+// enableSystem={false}
