@@ -2,9 +2,9 @@ import { StatCard } from "@/components/StatCard";
 import Image from "next/image";
 import Link from "next/link";
 import { HiOutlineOfficeBuilding } from "react-icons/hi";
-// import { columns } from "@/components/table/columns";
-// import { DataTable } from "@/components/table/DataTable";
+import { columns } from "@/components/table/columns";
 import { getRecentAppointmentList } from "@/lib/actions/appointment.actions";
+import { DataTable } from "@/components/table/DataTable";
 
 const AdminPage = async () => {
   const appointments = await getRecentAppointmentList();
@@ -32,8 +32,8 @@ const AdminPage = async () => {
             <span className="text-4xl font-bold text-white">Welcome Admin</span>
           </h1>
           <p className="text-dark-700">
-            Manage patient records, appointments, and administrative tasks with
-            ease.
+            Oversee patient management, track appointments, and maintain
+            operational control.
           </p>
         </section>
 
@@ -58,7 +58,7 @@ const AdminPage = async () => {
           />
         </section>
 
-        {/* <DataTable columns={columns} data={appointments.documents} /> */}
+        <DataTable columns={columns} data={appointments.documents} />
       </main>
     </div>
   );
