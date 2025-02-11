@@ -26,7 +26,7 @@ export default function Home() {
               <span>|</span>
               <span className="font-semibold text-green-800">ASM Shad</span>
               <span>|</span>
-              <span className="font-semibold text-green-800">CarePluse</span>
+              <span className="font-semibold text-green-800">CarePulse</span>
             </p>
             <Link
               href="/?admin=true"

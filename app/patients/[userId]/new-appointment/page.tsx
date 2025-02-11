@@ -29,7 +29,7 @@ const Appointment = async ({ params: { userId } }: SearchParamProps) => {
             <span>|</span>
             <p className="font-semibold text-green-800">ASM Shad</p>
             <span>|</span>
-            <p className="font-semibold text-green-800">CarePluse</p>
+            <p className="font-semibold text-green-800">CarePulse</p>
           </div>
         </div>
       </section>
