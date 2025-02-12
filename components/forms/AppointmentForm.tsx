@@ -22,7 +22,10 @@ import CustomFormField from "../CustomFormField";
 import { FormFieldType } from "./PatientForm";
 import SubmitButton from "../SubmitButton";
 import { Form } from "../ui/form";
-import { createAppointment } from "@/lib/actions/appointment.actions";
+import {
+  createAppointment,
+  updateAppointment,
+} from "@/lib/actions/appointment.actions";
 
 const AppointmentForm = ({
   userId,
