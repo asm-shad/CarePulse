@@ -64,24 +64,6 @@ const RegisterForm = ({ user }: { user: User }) => {
         identificationDocument: values.identificationDocument
           ? formData
           : undefined,
-        // name: values.name,
-        // email: values.email,
-        // phone: values.phone,
-        // gender: values.gender,
-        // address: values.address,
-        // occupation: values.occupation,
-        // emergencyContactName: values.emergencyContactName,
-        // emergencyContactNumber: values.emergencyContactNumber,
-        // primaryPhysician: values.primaryPhysician,
-        // insuranceProvider: values.insuranceProvider,
-        // insurancePolicyNumber: values.insurancePolicyNumber,
-        // allergies: values.allergies,
-        // currentMedication: values.currentMedication,
-        // familyMedicalHistory: values.familyMedicalHistory,
-        // pastMedicalHistory: values.pastMedicalHistory,
-        // identificationType: values.identificationType,
-        // identificationNumber: values.identificationNumber,
-        // privacyConsent: values.privacyConsent,
       };
 
       // @ts-ignore

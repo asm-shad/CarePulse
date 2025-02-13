@@ -1,9 +1,9 @@
 import Image from "next/image";
-
 import AppointmentForm from "@/components/forms/AppointmentForm";
 import { getPatient } from "@/lib/actions/patient.actons";
 
-const Appointment = async ({ params: { userId } }: SearchParamProps) => {
+const Appointment = async ({ params }: { params: { userId: string } }) => {
+  const { userId } = params; // Explicit destructuring
   const patient = await getPatient(userId);
 
   return (
@@ -20,7 +20,7 @@ const Appointment = async ({ params: { userId } }: SearchParamProps) => {
 
           <AppointmentForm
             patientId={patient?.$id}
-            userId={userId}
+            userId={params.userId}
             type="create"
           />
 

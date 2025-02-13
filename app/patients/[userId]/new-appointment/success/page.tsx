@@ -9,16 +9,21 @@ import { formatDateTime } from "@/lib/utils";
 const Success = async ({
   searchParams,
   params: { userId },
-}: SearchParamProps) => {
-  const appointmentId = (searchParams?.appointmentId as string) || "";
-  const appointment = await getAppointment(appointmentId);
+}: {
+  searchParams: { appointmentId?: string };
+  params: { userId: string };
+}) => {
+  const appointmentId = searchParams?.appointmentId ?? "";
+  const appointment = appointmentId
+    ? await getAppointment(appointmentId)
+    : null;
 
   const doctor = Doctors.find(
-    (doctor) => doctor.name === appointment.primaryPhysician
+    (doc) => doc.name === appointment?.primaryPhysician
   );
 
   return (
-    <div className=" flex h-screen max-h-screen px-[5%]">
+    <div className="flex h-screen max-h-screen px-[5%]">
       <div className="success-img">
         <Link href="/">
           <Image
@@ -44,28 +49,36 @@ const Success = async ({
           <p>We&apos;ll be in touch shortly to confirm.</p>
         </section>
 
-        <section className="request-details">
-          <p>Requested appointment details: </p>
-          <div className="flex items-center gap-3">
-            <Image
-              src={doctor?.image!}
-              alt="doctor"
-              width={100}
-              height={100}
-              className="size-6"
-            />
-            <p className="whitespace-nowrap">Dr. {doctor?.name}</p>
-          </div>
-          <div className="flex gap-2">
-            <Image
-              src="/assets/icons/calendar.svg"
-              height={24}
-              width={24}
-              alt="calendar"
-            />
-            <p> {formatDateTime(appointment.schedule).dateTime}</p>
-          </div>
-        </section>
+        {appointment && (
+          <section className="request-details">
+            <p>Requested appointment details:</p>
+            <div className="flex items-center gap-3">
+              {doctor?.image && (
+                <Image
+                  src={doctor.image}
+                  alt="doctor"
+                  width={100}
+                  height={100}
+                  className="size-6"
+                />
+              )}
+              <p className="whitespace-nowrap">Dr. {doctor?.name}</p>
+            </div>
+            <div className="flex gap-2">
+              <Image
+                src="/assets/icons/calendar.svg"
+                height={24}
+                width={24}
+                alt="calendar"
+              />
+              <p>
+                {appointment.schedule
+                  ? formatDateTime(appointment.schedule).dateTime
+                  : "No schedule available"}
+              </p>
+            </div>
+          </section>
+        )}
 
         <Button variant="outline" className="shad-primary-btn" asChild>
           <Link href={`/patients/${userId}/new-appointment`}>
