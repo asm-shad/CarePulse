@@ -3,7 +3,7 @@ import AppointmentForm from "@/components/forms/AppointmentForm";
 import { getPatient } from "@/lib/actions/patient.actons";
 
 const Appointment = async ({ params }: { params: { userId: string } }) => {
-  const { userId } = params; // Explicit destructuring
+  const { userId } = await params;
   const patient = await getPatient(userId);
 
   return (
@@ -20,7 +20,7 @@ const Appointment = async ({ params }: { params: { userId: string } }) => {
 
           <AppointmentForm
             patientId={patient?.$id}
-            userId={params.userId}
+            userId={userId}
             type="create"
           />
 
